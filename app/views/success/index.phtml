@@ -1,0 +1,37 @@
+<div style="height:500px;">
+	
+	<?php if($status == "success"){ ?>
+	<div style="text-align: center; padding-top: 200px;">
+		<span class="glyphicon glyphicon-ok" style="font-size: 40px; color:green;">  Congratulations!</span>
+		<br/>
+		<span style="font-size: 20px; color:green;">Payment Successful.</span>
+	</div>
+	<?php } ?>
+	
+	<?php if($status == "failed"){ ?>
+	<div style="text-align: center; padding-top: 200px;">
+		<span class="glyphicon glyphicon-ok" style="font-size: 40px; color:red;">  Transaction Failed!</span>
+		<br/>
+		<span style="font-size: 20px; color:red;">Please try again</span>
+	</div>
+	<?php } ?>	
+	
+	<?php if($status == "pending"){ ?>
+
+	<div style="text-align: center; padding-top: 200px;">
+		<span class="glyphicon glyphicon-ok" style="font-size: 40px; color:blue;">  Pending Transaction</span>
+		<br/>
+		<span style="font-size: 20px; color:blue;">Email will be sent once transaction is finished</span>
+	</div>
+	<?php } ?>	
+	
+	<?php if($status == "verify"){ ?>
+	<div style="text-align: center; padding-top: 200px;">
+		<span class="glyphicon glyphicon-ok" style="font-size: 40px; color:blue;">  Transaction being verified</span>
+		<br/>
+		<span style="font-size: 20px; color:blue;">Email will be sent once transaction is finished</span>
+	</div>
+	<?php } ?>		
+		
+	
+</div>

@@ -1,0 +1,18 @@
+<script type="text/javascript">
+<!--
+	function onframe(event){
+		//console.dir(event);
+		window.history.forward();
+		
+		if(event.contentDocument.URL){
+			$("#step2").removeClass("active");
+			$("#step3").addClass("active");
+		}else{
+			$("#step2").addClass("active");
+			$("#step3").removeClass("active");
+		}
+		
+	}
+//-->
+</script>
+<iframe src="<?php echo $payment_url; ?>" id="frame" frameborder="0" style="width: 100%; height: 600px; " onLoad="onframe(this);"></iframe>

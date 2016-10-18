@@ -1,0 +1,68 @@
+			<div id="panel_content1" style="height: 600px;">
+			  	<div class="panel-group col-sm-6">
+				    <div class="panel panel-default">
+				      <div class="panel-heading">Order Summary</div>
+				      <div class="panel-body">
+				      
+						  <b>Item Description:</b> <?php echo $desc; ?>
+						  <br/>
+						  <br/>
+				      	  <table class="table">
+							  <thead>
+							    <tr>
+							      <th>Items</th>
+							      <th>Amount</th>
+							    </tr>
+							  </thead>
+							  <tbody>							  	
+							  	<?php foreach($cart as $items){?>
+							  	
+								    <tr>
+								      <th><?php echo $items->item; ?></th>
+								      <td><?php echo $items->price; ?></td>
+								    </tr>
+							    <?php } ?>
+							    
+								    <tr>
+								    	<th>Total:</th>
+								    	<th><?php echo $total; ?></th>
+								    </tr>							    
+							  </tbody>
+						</table>
+				      </div>
+				    </div>
+			    </div>
+			    <form action="<?php echo $root_url; ?>payment" method="post" enctype="multipart/form-data">
+			  	<div class="panel-group col-sm-6">
+				    <div class="panel panel-default">
+				      <div class="panel-heading">Mode of payment</div>
+				      <div class="panel-body">
+				      	
+				      	<select class="form-control" id="mode_payment" name="mode_payment">
+				      		 
+							 <?php foreach($bank_list as $key=>$value){?>
+							 
+							    <option value="<?php echo $key; ?>"><?php echo $bank_list[$key]['name']; ?></option>
+							    
+							    <?php if( count($bank_list[$key]['banks']) !=0 ){ ?>
+							    		<?php foreach($bank_list[$key]['banks'] as $bank){?>
+							    			
+							    			<option value="<?php echo $key; ?>-<?php echo $bank['id']; ?>">  ---<?php echo $bank['name']; ?></option>
+							    			
+							    		<?php } ?>
+							    <?php } ?>
+							    
+							    
+						     <?php } ?>
+						     
+  						</select>
+  						
+				      </div>
+				    </div>		    
+			    </div>
+				<div class="row">	
+			    <button type="submit" class="btn btn-raised btn-primary center-block" style="width: 250px;">Process Order</button>
+			    </div>
+			    </form>
+		    </div>
+		    
